@@ -1,0 +1,34 @@
+[project]
+name = "unified-bootstrapped-dqn-scaling"
+version = "1.0.0"
+authors = [{ name="Anonymized", email="dqn.scaling.laws@Anonymized.tech" }]
+license = "MIT"
+description = "Official implementation of 'A Unified Scaling Law for Bootstrapped DQNs'"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "jax[cuda12]", # nvidia support by default
+    "optax",
+    "tqdm",
+    "equinox",
+    "jaxtyping",
+    "seaborn",
+    "pillow",
+    "gymnax",
+]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+
+[tool.ruff]
+line-length = 100
+ignore = ["F722", "F821", "E731"]
+
+[tool.uv.sources]
+gymnax = { git = "https://github.com/Anonymized/gymnax", branch = "equiv" }

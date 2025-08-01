@@ -1,0 +1,12 @@
+# runpod is not a standard executable - you can find it at https://github.com/anonymizeder/config
+
+runpod_start:
+  runpod start --bid 0.42 --gpuCount 2 # set to your default config
+
+runpod_setup:
+  runpod ssh "apt-get update && apt-get install -y rsync screen && git clone https://github.com/anonymized/bootstrapped-dqn-scaling workspace" || true
+  runpod upload results workspace/ -s
+  runpod ssh "cd workspace && git pull && ./run.sh"
+
+runpod_download:
+  runpod download workspace/results . -s
